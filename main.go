@@ -9,10 +9,16 @@ import (
 )
 
 type Person struct {
-	ID        string   `json:"id,omitempty"`
-	Firstname string   `json:"firstname,omitempty"`
-	Lastname  string   `json:"lastname,omitempty"`
-	Address   *Address `json:"address,omitempty"`
+	ID        string    `json:"id,omitempty"`
+	Firstname string    `json:"firstname,omitempty"`
+	Lastname  string    `json:"lastname,omitempty"`
+	Address   *Address  `json:"address,omitempty"`
+	Contacts  *Contacts `json:"contacts,omitempty"`
+}
+
+type Contacts struct {
+	Phone string `json:"phone,omitempty"`
+	Email string `json:"email,omitempty"`
 }
 
 type Address struct {
@@ -21,9 +27,9 @@ type Address struct {
 }
 
 func HandleFuncPerson() {
-	people = append(people, Person{ID: "1", Firstname: "John", Lastname: "Doe", Address: &Address{City: "City X", State: "State X"}})
-	people = append(people, Person{ID: "2", Firstname: "Koko", Lastname: "Doe", Address: &Address{City: "City Z", State: "State Y"}})
-	people = append(people, Person{ID: "3", Firstname: "Francis", Lastname: "Sunday"})
+	people = append(people, Person{ID: "1", Firstname: "John", Lastname: "Doe", Address: &Address{City: "City X", State: "State X"}, Contacts: &Contacts{Phone: "8888-8888", Email: "myemail@test.com"}})
+	people = append(people, Person{ID: "2", Firstname: "Koko", Lastname: "Doe", Address: &Address{City: "City Z", State: "State Y"}, Contacts: &Contacts{Phone: "8888-8888", Email: "myemail@test.com"}})
+	people = append(people, Person{ID: "3", Firstname: "Francis", Lastname: "Sunday", Contacts: &Contacts{Phone: "8888-8888", Email: "myemail@test.com"}})
 }
 
 var people []Person
